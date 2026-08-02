@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ганичева Елена — Репетитор начальных классов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Neucha&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --autumn-bg: #fdf9f0;
+            --autumn-orange: #d97b2b;
+            --autumn-red: #a83a2a;
+            --autumn-gold: #e5b53b;
+            --text-dark: #3a2e26;
+            --card-bg: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--autumn-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 { font-family: 'Neucha', cursive; color: var(--autumn-red); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Шапка */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand { font-family: 'Neucha', cursive; font-size: 1.6rem; color: var(--autumn-red); }
+
+        .vk-links a {
+            text-decoration: none;
+            color: #4c75a3;
+            font-weight: bold;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .vk-links a:hover { color: var(--autumn-red); }
+
+        /* Hero (шапка сайта) */
+        .hero {
+            padding: 70px 0;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text { flex: 1.2; }
+        .hero-image { flex: 1; text-align: center; }
+
+        .hero-image img {
+            max-width: 100%;
+            width: 460px;
+            border-radius: 30px;
+            box-shadow: 12px 12px 0 rgba(229,181,59,0.6);
+        }
+
+        .hero h1 { font-size: 3.2rem; margin-bottom: 15px; }
+        .hero p { font-size: 1.25rem; margin-bottom: 30px; color: #5a4a3a; }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            padding: 15px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-orange { background: var(--autumn-orange); color: #fff; }
+        .btn-orange:hover { background: var(--autumn-red); }
+
+        .btn-vk { background: #4c75a3; color: #fff; }
+        .btn-vk:hover { background: #3a5c85; }
+
+        .btn-light { background: #fff; color: var(--autumn-red); }
+        .btn-light:hover { background: #f5e6d0; }
+
+        /* Обо мне */
+        .about {
+            padding: 70px 0;
+            background: #fff7ea;
+        }
+
+        .about-wrap {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text { flex: 1.2; min-width: 300px; }
+        .about-image { flex: 0.8; min-width: 280px; }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 50px 15px 50px 15px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .about h2 { font-size: 2.4rem; margin-bottom: 20px; }
+
+        /* Заголовки блоков */
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            margin-bottom: 40px;
+        }
+
+        /* Сетка карточек */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border-bottom: 4px solid var(--autumn-orange);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+
+        section.blocks { padding: 80px 0; }
+
+        /* Квалификация */
+        .qualification { text-align: center; background: #fff; padding: 80px 0; }
+        .qualification p { max-width: 700px; margin: 0 auto 30px; color: #5a4a3a; }
+
+        .cert-img {
+            max-width: 850px;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        /* Отзывы */
+        .reviews { background: #fff7ea; padding: 80px 0; }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 22px;
+        }
+
+        .reviews-grid img {
+            width: 100%;
+            border-radius: 14px;
+            border: 1px solid #e8dfce;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+        }
+
+        /* Гайд */
+        .gaid-box {
+            background: linear-gradient(135deg, var(--autumn-red), #c2572f);
+            color: #fff;
+            padding: 45px;
+            border-radius: 22px;
+            text-align: center;
+            margin: 70px 0;
+        }
+        .gaid-box h2 { color: #fff; font-size: 2.2rem; margin-bottom: 12px; }
+        .gaid-box p { margin-bottom: 25px; font-size: 1.1rem; }
+
+        /* Форма / CTA */
+        #form { text-align: center; padding-bottom: 80px; }
+        #form p { max-width: 600px; margin: 0 auto 30px; color: #5a4a3a; }
+
+        /* Подвал */
+        footer {
+            padding: 45px 0;
+            background: #3f332a;
+            color: #eee;
+            text-align: center;
+        }
+        footer .container { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        footer .btn { margin: 0 8px; }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero, .about-wrap { flex-direction: column; text-align: center; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-image img { width: 100%; }
+            .about-image { order: -1; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Шапка с навигацией -->
+<header>
+    <div class="container header-content">
+        <div class="brand">Елена Ганичева</div>
+        <div class="vk-links">
+            <a href="https://vk.ru/moyrepetitorvk" target="_blank">Мой репетитор</a>
+            <a href="https://vk.ru/uchusonline" target="_blank">Учусь онлайн</a>
+        </div>
+    </div>
+</header>
+
+<!-- Hero — текст слева, фото справа -->
+<section class="hero container">
+    <div class="hero-text">
+        <h1>Ганичева Елена</h1>
+        <p>Репетитор для дошкольников и школьников 1–6 классов. Помогаю детям легко справляться с уроками и полюбить учёбу — более 20 лет опыта.</p>
+        <a href="#form" class="btn btn-orange">Записаться на диагностику</a>
+    </div>
+    <div class="hero-image">
+        <img src="https://static.mashagpt.ru/dl/mashagpt/duj6mi2lvsulk0p4dg913g3m.webp" alt="Елена Ганичева с учениками">
+    </div>
+</section>
+
+<!-- Обо мне — фото справа, текст слева -->
+<section class="about">
+    <div class="container about-wrap">
+        <div class="about-text">
+            <h2>Обо мне</h2>
+            <p>Я помогаю школьникам 1–6 классов легко справляться с уроками по <b>математике, русскому языку, литературному чтению, окружающему миру</b>, а также обучаю <b>скорочтению</b>.</p>
+            <p>На занятиях активно использую методики, направленные на <b>развитие памяти и внимания</b> — ведь именно эти сферы у детей начальной школы часто недостаточно сформированы.</p>
+            <p>Моё кредо — объяснять даже самый сложный материал <b>просто и понятно</b>, оставаясь дружелюбным, но требовательным наставником.</p>
+        </div>
+        <div class="about-image">
+            <img src="https://static.mashagpt.ru/dl/mashagpt/cnw0hhb4vfc0gqwq3r3hfib7.webp" alt="Елена за работой">
+        </div>
+    </div>
+</section>
+
+<!-- Для кого полезны занятия -->
+<section class="blocks container">
+    <h2 class="section-title">Для кого полезны занятия</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Ученики 1–6 классов</h3>
+            <p>Математика, русский язык, чтение, литература — подтянем знания и исправим оценки.</p>
+        </div>
+        <div class="card">
+            <h3>Подготовка к проверочным</h3>
+            <p>Снимем стресс и подготовимся к экзаменам, ВПР, МЦКО и контрольным работам.</p>
+        </div>
+        <div class="card">
+            <h3>Сильные школы</h3>
+            <p>Подготовка к поступлению в гимназии, лицеи и «сильные» школы.</p>
+        </div>
+        <div class="card">
+            <h3>Дошкольники</h3>
+            <p>Обучение чтению, письму, логике и мягкая адаптация к школе.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Квалификация -->
+<section class="qualification">
+    <div class="container">
+        <h2 class="section-title">Квалификация и опыт</h2>
+        <p>Более 20 лет педагогического стажа, десятки успешных учеников и высокий рейтинг по оценкам родителей.</p>
+        <img src="https://static.mashagpt.ru/dl/mashagpt/rvezo5sj6iwcyuyb6h7qs096.webp" alt="Квалификация и сертификаты" class="cert-img">
+    </div>
+</section>
+
+<!-- Отзывы -->
+<section class="reviews">
+    <div class="container">
+        <h2 class="section-title">Отзывы родителей</h2>
+        <div class="reviews-grid">
+            <img src="https://static.mashagpt.ru/dl/mashagpt/mzk6c2urni5wlnzy6dupswa1.webp" alt="Отзыв 1">
+            <img src="https://static.mashagpt.ru/dl/mashagpt/zj57jk6ugy9ewgs2ws267qtl.webp" alt="Отзыв 2">
+            <img src="https://static.mashagpt.ru/dl/mashagpt/b10kkdfh4wez87n88zc8s6kn.webp" alt="Отзыв 3">
+        </div>
+    </div>
+</section>
+
+<!-- Гайд -->
+<div class="container">
+    <div class="gaid-box">
+        <h2>Подарок для вас!</h2>
+        <p>Получите бесплатный гайд «7 причин, почему ваш ребёнок стал хуже учиться»</p>
+        <a href="https://vk.cc/cugXdP" target="_blank" class="btn btn-light">Скачать гайд бесплатно</a>
+    </div>
+</div>
+
+<!-- Запись на диагностику -->
+<section id="form" class="container">
+    <h2 class="section-title">Записаться на диагностику</h2>
+    <p>Уделите минуту на заполнение анкеты, чтобы обсудить цели обучения и составить индивидуальную программу. Диагностика — 30 минут, бесплатно.</p>
+    <a href="https://vk.ru/moyrepetitorvk" target="_blank" class="btn btn-orange">Заполнить анкету в VK</a>
+</section>
+
+<!-- Подвал -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Ганичева Елена. Все права защищены.</p>
+        <div>
+            <a href="https://vk.ru/moyrepetitorvk" target="_blank" class="btn btn-vk">VK: Мой репетитор</a>
+            <a href="https://vk.ru/uchusonline" target="_blank" class="btn btn-vk">VK: Учусь онлайн</a>
+            <a href="https://vk.cc/cugXdP" target="_blank" class="btn btn-vk">Гайд</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
